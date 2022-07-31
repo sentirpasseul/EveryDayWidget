@@ -31,42 +31,42 @@ class MainUi(QWidget):
 
     def initUI(self):
 
-
-
-
-        label_degree = QtWidgets.QLabel(f"{self.weather_degree}") #Текст для отображения градусов
+        label_degree = QtWidgets.QLabel(f"{self.weather_degree}") #Текст для отображения
         label_degree.setFont(PyQt5.QtGui.QFont('Inter', 50)) #Изменение шрифта отображения градусов
+        label_degree.setStyleSheet('color: white')
 
-        label_icon_weather = QtWidgets.QLabel()
-        pixmap_icon_weather = QPixmap(f'{self.path_icon_weather}') #Иконка погоды
-        label_icon_weather.setPixmap(pixmap_icon_weather)
-        label_icon_weather.resize(90,79)
+        label_icon_weather = QtWidgets.QLabel()              #Инициализация корпуса погоды
+        pixmap_icon_weather = QPixmap(f'{self.path_icon_weather}') #Иконка погоды с указанием пути к ней
+        label_icon_weather.setPixmap(pixmap_icon_weather) #Добавление иконки в корпус Label
+        label_icon_weather.resize(90,79) # изменение размеров иконки
 
-        label_city = QtWidgets.QLabel(f'{self.city}')
-        label_city.setFont(PyQt5.QtGui.QFont('Inter', 36))
+        label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
+        label_city.setFont(PyQt5.QtGui.QFont('Inter', 36)) #Изменение шрифта отображения города
+        label_city.setStyleSheet('color: white')
 
-        label_time = QtWidgets.QLabel(f'{self.time}')
-        label_time.setFont(PyQt5.QtGui.QFont('Inter', 24))
+        label_time = QtWidgets.QLabel(f'{self.time}') #Текст для отображения времени
+        label_time.setFont(PyQt5.QtGui.QFont('Inter', 24)) #Изменение шрифта отображения времени
+        label_time.setStyleSheet('color: white')
 
-        label_date = QtWidgets.QLabel(f'{self.full_day}')
-        label_date.setFont(PyQt5.QtGui.QFont('Inter', 16))
+        label_date = QtWidgets.QLabel(f'{self.full_day}') #Текст для отображения даты
+        label_date.setFont(PyQt5.QtGui.QFont('Inter', 16)) #Изменение шрифта отображения даты
+        label_date.setStyleSheet('color: white')
 
         objects = [f'{label_degree}', f'{label_icon_weather}', f'{label_city}'
-                   '9',                  f'{label_time}',       f'{label_date}', 'f']
+                   '9',                  f'{label_time}',       f'{label_date}', 'f'] #Как должна выглядеть сетка
 
-        positions = [(i, j) for i in range(5) for j in range(4)]
+        grid = QtWidgets.QGridLayout() # Создание самой сетки
 
-        grid = QtWidgets.QGridLayout()
-
+        "Добавление всех labels в сетку"
         grid.addWidget(label_degree, 0, 0)
         grid.addWidget(label_icon_weather, 0, 1)
         grid.addWidget(label_city, 0, 2)
         grid.addWidget(label_time, 1, 1)
         grid.addWidget(label_date, 1, 2)
 
-        self.setLayout(grid)
+        self.setLayout(grid) #Отображение самой сетки (создание слоя, состоящего из сетки)
 
-        self.move(300, 150)
+        self.move(self.width(), self.height()//6)
         self.setWindowTitle('EveryDayWidget')
         self.show()
 
