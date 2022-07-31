@@ -29,7 +29,7 @@ class GetCoords:
         #print("Широта:", lat, "Долгота:", lon)
 
         weather_icon = dict_coords['weather'][0]['main']
-        print(weather_icon)
+        #print(weather_icon)
 
         weather_degree = round(dict_coords['main']['feels_like'] - self.kelvin)
         #Если погода меньше 0, то добавляется перед числом знак "-", если больше - знак "+"

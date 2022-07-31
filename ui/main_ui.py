@@ -77,7 +77,6 @@ class MainUi(QWidget):
 
 
 if __name__ == '__main__':
-
     app = QApplication(sys.argv)
     ex = MainUi()
     sys.exit(app.exec_())

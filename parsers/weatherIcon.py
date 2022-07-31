@@ -12,7 +12,7 @@ class WeatherIcon:
 
     def get_weather(self):
         icon_w = self.weather_icon
-        print('ICON_W', icon_w)
+        #print('ICON_W', icon_w)
 
         if icon_w == 'Clouds' or ('clouds' in icon_w):
             return self.clouds
