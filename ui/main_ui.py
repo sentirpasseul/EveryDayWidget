@@ -3,9 +3,10 @@ import PyQt5.QtGui
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel
+from PyQt5.QtWidgets import *
 from parsers.get_coords import GetCoords
 from parsers.get_date import TodayDateTime
+from parsers.weatherIcon import WeatherIcon
 import sys
 #from parsers.get_coords import
 
@@ -19,8 +20,9 @@ class MainUi(QWidget):
 
         self.city = 'Ulan-Ude'
         self.getCoords = GetCoords(f"{self.city}")
+        weatherIcon = WeatherIcon()
         self.weather_degree, self.weather_icon  = self.getCoords.get_coords()
-        self.path_icon_weather = "..\src\icons\bi_cloud-sun.png"
+        self.path_icon_weather = weatherIcon.get_weather()
         #print(weather_icon, weather_degree)
 
         self.getDate = TodayDateTime()
@@ -36,13 +38,13 @@ class MainUi(QWidget):
         label_degree.setStyleSheet('color: white')
 
         label_icon_weather = QtWidgets.QLabel()              #Инициализация корпуса погоды
-        pixmap_icon_weather = QPixmap(f'{self.path_icon_weather}') #Иконка погоды с указанием пути к ней
+        pixmap_icon_weather = QPixmap(self.path_icon_weather) #Иконка погоды с указанием пути к ней
         label_icon_weather.setPixmap(pixmap_icon_weather) #Добавление иконки в корпус Label
         label_icon_weather.resize(90,79) # изменение размеров иконки
 
         label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
         label_city.setFont(PyQt5.QtGui.QFont('Inter', 36)) #Изменение шрифта отображения города
-        label_city.setStyleSheet('color: white')
+        label_city.setStyleSheet('color: white; padding-up: 50px')
 
         label_time = QtWidgets.QLabel(f'{self.time}') #Текст для отображения времени
         label_time.setFont(PyQt5.QtGui.QFont('Inter', 24)) #Изменение шрифта отображения времени
@@ -50,9 +52,9 @@ class MainUi(QWidget):
 
         label_date = QtWidgets.QLabel(f'{self.full_day}') #Текст для отображения даты
         label_date.setFont(PyQt5.QtGui.QFont('Inter', 16)) #Изменение шрифта отображения даты
-        label_date.setStyleSheet('color: white')
+        label_date.setStyleSheet('color: white; padding-left: 30px; padding-down: 50px')
 
-        objects = [f'{label_degree}', f'{label_icon_weather}', f'{label_city}'
+        objects = [f'{label_degree}', f'{pixmap_icon_weather}', f'{label_city}'
                    '9',                  f'{label_time}',       f'{label_date}', 'f'] #Как должна выглядеть сетка
 
         grid = QtWidgets.QGridLayout() # Создание самой сетки
