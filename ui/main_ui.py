@@ -11,9 +11,8 @@ import sys
 #from parsers.get_coords import
 
 class MainUi(QWidget):
-
     def __init__(self):
-        super().__init__()
+        QWidget.__init__(self)
 
         self.setWindowFlag(Qt.FramelessWindowHint) #Режим без рамок окна
         self.setAttribute(Qt.WA_TranslucentBackground) #Режим прозрачного фона

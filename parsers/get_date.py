@@ -19,8 +19,19 @@ class TodayDateTime:
         #print("Месяц: ",self.month)
         #print('День недели: ', self.weekday)
         #print("Время: ",self.time)
-        self.full_day = f'{self.day}th of {self.month}'
+        self.full_day = f'{self.day}{self.get_day()} of {self.month}'
         #print(self.full_day)
+
+    def get_day(self):
+        day = self.day
+        if day < 2:
+            return 'st'
+        elif 1 < day < 3:
+            return 'nd'
+        elif day == 3:
+            return 'rd'
+        elif day > 3:
+            return 'th'
 
 
 
