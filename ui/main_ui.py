@@ -48,7 +48,7 @@ class MainUi(QWidget):
 
         label_icon_weather = QtWidgets.QLabel()              #Инициализация корпуса погоды
         pixmap_icon_weather = QPixmap(self.path_icon_weather) #Иконка погоды с указанием пути к ней
-        pixmap_icon_weather.scaled(90, 75)
+        pixmap_icon_weather.scaled(90, 75) #Масштабирование иконки погоды
         label_icon_weather.setPixmap(pixmap_icon_weather) #Добавление иконки в корпус Label
 
         label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
