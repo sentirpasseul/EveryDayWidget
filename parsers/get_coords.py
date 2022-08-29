@@ -65,5 +65,7 @@ class GetCoords:
 
 
 
+
+
 coords = GetCoords(city='Ulan-Ude')
 coords.get_coords()
