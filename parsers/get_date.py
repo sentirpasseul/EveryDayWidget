@@ -8,7 +8,6 @@ class TodayDateTime:
         self.today = datetime.datetime.now()
         self.day = self.today.day
         self.year = self.today.year
-        self.time = (self.today.strftime("%H:%M:%S"))
         self.months = ['January', 'February', 'March', 'April',
                        'May', 'June', 'July', 'August', 'September',
                        'October', 'November', 'December']

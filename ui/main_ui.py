@@ -8,6 +8,7 @@ from parsers.get_coords import GetCoords
 from parsers.get_date import TodayDateTime
 from parsers.weatherIcon import WeatherIcon
 import sys
+import datetime
 #from parsers.get_coords import
 
 class MainUi(QWidget):
@@ -27,16 +28,25 @@ class MainUi(QWidget):
         #print(weather_icon, weather_degree)
 
         self.getDate = TodayDateTime()
-        self.time = self.getDate.time
+        #self.time = self.updateTime()
+        #print('@@@', self.time)
+
+
         self.full_day = self.getDate.full_day
 
         self.initUI()
 
-    def updateTime(self):
-        time = self.getDate.time
-        print(time)
+    def get_time(self):
+        today = datetime.datetime.now()
+        self.time = (today.strftime("%H:%M:%S"))
+        print(self.time)
 
-        self.label_time.setText(time)
+    def updateTime(self):
+        self.timer = QTimer()
+        self.timer.start(1000)
+        self.timer.timeout.connect(self.get_time)
+
+
 
 
 
@@ -56,8 +66,7 @@ class MainUi(QWidget):
         label_city.setStyleSheet('color: white; opacity: 0.72; padding-up: 50px')
 
 
-
-        self.label_time = QtWidgets.QLabel(f'{self.time}')  # Текст для отображения времени
+        self.label_time = QtWidgets.QLabel(f'{self.updateTime()}' )  # Текст для отображения времени
         self.label_time.setFont(PyQt5.QtGui.QFont('Inter', 24))  # Изменение шрифта отображения времени
         self.label_time.setStyleSheet('color: white')
         #timer = QTimer()  # creating a timer object
