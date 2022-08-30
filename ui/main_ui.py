@@ -29,8 +29,9 @@ class MainUi(QWidget):
 
         self.getDate = TodayDateTime()
         #self.time = self.updateTime()
-        #print('@@@', self.time)
+        self.label_time = QLabel()
 
+        #print('@@@', self.time)
 
         self.full_day = self.getDate.full_day
 
@@ -39,12 +40,14 @@ class MainUi(QWidget):
     def get_time(self):
         today = datetime.datetime.now()
         self.time = (today.strftime("%H:%M:%S"))
-        print(self.time)
+
+        self.label_time.setText(self.time)
+        #self.label_time = QLabel(f'{self.time}')  # Текст для отображения времени
+        self.label_time.setFont(PyQt5.QtGui.QFont('Inter', 24))  # Изменение шрифта отображения времени
+        self.label_time.setStyleSheet('color: white')
 
     def updateTime(self):
-        self.timer = QTimer()
-        self.timer.start(1000)
-        self.timer.timeout.connect(self.get_time)
+        ...
 
 
 
@@ -52,23 +55,31 @@ class MainUi(QWidget):
 
     def initUI(self):
 
+        #self.updateTime()
+        self.timer = QTimer()
+        self.timer.start(1000)
+        self.timer.timeout.connect(self.get_time)
+
         label_degree = QtWidgets.QLabel(f"{self.weather_degree}") #Текст для отображения
         label_degree.setFont(PyQt5.QtGui.QFont('Inter', 50)) #Изменение шрифта отображения градусов
         label_degree.setStyleSheet('color: white')
 
         label_icon_weather = QtWidgets.QLabel()              #Инициализация корпуса погоды
-        pixmap_icon_weather = QPixmap(self.path_icon_weather) #Иконка погоды с указанием пути к ней
-        pixmap_icon_weather.scaled(90, 75) #Масштабирование иконки погоды
+        pixmap_icon_weather = QPixmap(self.path_icon_weather).scaled(90,75) #Иконка погоды с указанием пути к ней
+        #pixmap_icon_weather.scaled(90, 75) #Масштабирование иконки погоды
         label_icon_weather.setPixmap(pixmap_icon_weather) #Добавление иконки в корпус Label
+        label_icon_weather.setStyleSheet('color: white; opacity: 0.72; padding-up: 50px')
 
         label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
         label_city.setFont(PyQt5.QtGui.QFont('Inter', 36)) #Изменение шрифта отображения города
         label_city.setStyleSheet('color: white; opacity: 0.72; padding-up: 50px')
 
+        self.time = self.updateTime()
+        #self.label_time = QLabel(f'{self.time}')  # Текст для отображения времени
+        #self.label_time.setFont(PyQt5.QtGui.QFont('Inter', 24))  # Изменение шрифта отображения времени
+        #self.label_time.setStyleSheet('color: white')
+        #print('@@@', self.label_time)
 
-        self.label_time = QtWidgets.QLabel(f'{self.updateTime()}' )  # Текст для отображения времени
-        self.label_time.setFont(PyQt5.QtGui.QFont('Inter', 24))  # Изменение шрифта отображения времени
-        self.label_time.setStyleSheet('color: white')
         #timer = QTimer()  # creating a timer object
         # timer.setInterval(100)  # установка интервала
         #timer.timeout.connect(self.updateTime)
