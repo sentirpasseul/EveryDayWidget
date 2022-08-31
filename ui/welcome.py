@@ -14,7 +14,7 @@ class WelcomeUi(QWidget):
 
         self.text = 'Добро пожаловать!'
         self.setWindowFlag(Qt.FramelessWindowHint)  # Режим без рамок окна
-        self.setStyleSheet('background-color: black')
+        self.setStyleSheet('background-color: rgba(255, 255, 255, 0)') ##!TODO Сделать прозрачным на 77%
 
         self.initUi()
 
