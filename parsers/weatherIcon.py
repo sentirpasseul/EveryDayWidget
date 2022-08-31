@@ -1,3 +1,5 @@
+import codecs
+
 from parsers.get_coords import GetCoords
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import *
@@ -6,9 +8,16 @@ class WeatherIcon:
     def __init__(self):
         self.get_coords = GetCoords('Ulan-Ude')
         self.degree, self.weather_icon = self.get_coords.get_coords()
-        self.clouds = QPixmap( r'..\src\icons\cloud_sun.png')
+
+        item = QGraphicsItem()
+        effect = QGraphicsColorizeEffect()
+
+
+
+        self.clouds = QPixmap(r'..\src\icons\cloud_sun.png')
         self.sunny = QPixmap(r'..\src\icons\sunny.png')
         self.rain = QPixmap(r'..\src\icons\rainy.png')
+
 
 
     def get_weather(self):

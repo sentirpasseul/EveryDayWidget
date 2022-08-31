@@ -24,8 +24,8 @@ class GetCoords:
         srs_coords = self.get_req(self.url_coords)
         dict_coords = eval(srs_coords) # конвертация в словарь
         #print('Получаемые данные из местности:', dict_coords)
-        lon = round(dict_coords['coord']['lon'])
-        lat = round(dict_coords['coord']['lat'])
+        self.lon = round(dict_coords['coord']['lon'])
+        self.lat = round(dict_coords['coord']['lat'])
         #print("Широта:", lat, "Долгота:", lon)
 
         weather_icon = dict_coords['weather'][0]['main']
@@ -50,7 +50,7 @@ class GetCoords:
 
     def get_weather(self):
         #lon, lat = self.get_coords()
-        url_weather = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={self.appid}'
+        url_weather = f'https://api.openweathermap.org/data/2.5/weather?lat={self.lat}&lon={self.lon}&appid={self.appid}'
         #with gzip.open('data_weather/daily_16.json.gz', 'rt', encoding='UTF-8') as zipfile:
          #   data = json.load(zipfile)
         srs_weather = self.get_req(url_weather)
