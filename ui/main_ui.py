@@ -21,8 +21,8 @@ class MainUi(QWidget):
 
         self.city = 'Ulan-Ude'
         self.getCoords = GetCoords(f"{self.city}")
-        weatherIcon = WeatherIcon()
-        self.weather_degree, self.weather_icon  = self.getCoords.get_weather()
+        self.weather_degree, self.weather_code  = self.getCoords.get_weather()
+        weatherIcon = WeatherIcon(self.weather_code)
         self.path_icon_weather = weatherIcon.get_weather()
 
         #print(weather_icon, weather_degree)

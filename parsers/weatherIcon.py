@@ -5,9 +5,9 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import *
 
 class WeatherIcon:
-    def __init__(self):
+    def __init__(self, weather_code):
         self.get_coords = GetCoords('Ulan-Ude')
-        self.degree, self.weather_code = self.get_coords.get_weather()
+        self.weather_code = weather_code
 
         #with open('src\weather\codes.json', encoding='utf-8') as file:
          #   self.codes_weather = file.read()
