@@ -31,6 +31,10 @@ class MainUi(QWidget):
         #self.time = self.updateTime()
         self.label_time = QLabel()
         self.label_date = QLabel()
+        self.label_degree = QLabel()
+        self.label_degree.setText(self.weather_degree)  # Текст для отображения
+        self.label_degree.setFont(PyQt5.QtGui.QFont('Inter', 36))  # Изменение шрифта отображения градусов
+        self.label_degree.setStyleSheet('color: white')
 
         #print('@@@', self.time)
 
@@ -38,7 +42,7 @@ class MainUi(QWidget):
 
         self.initUI()
 
-    def get_time(self):
+    def update_time(self):
         today = datetime.datetime.now()
         self.time = (today.strftime("%H:%M:%S"))
 
@@ -51,6 +55,13 @@ class MainUi(QWidget):
         self.label_date.setFont(PyQt5.QtGui.QFont('Inter', 16))  # Изменение шрифта отображения даты
         self.label_date.setStyleSheet('color: white; padding-left: 30px; padding-down: 50px')
 
+
+
+    def update_weather(self):
+        self.label_degree.setText(self.weather_degree)  # Текст для отображения
+        self.label_degree.setFont(PyQt5.QtGui.QFont('Inter', 36))  # Изменение шрифта отображения градусов
+        self.label_degree.setStyleSheet('color: white')
+
     def get_weather(self):
         ...
 
@@ -61,14 +72,16 @@ class MainUi(QWidget):
     def initUI(self):
 
         #self.updateTime()
-        self.timer = QTimer()
-        self.timer.start(1000)
-        self.timer.timeout.connect(self.get_time)
+        self.timer_time = QTimer()
+        self.timer_time.start(250)
+        self.timer_time.timeout.connect(self.update_time)
+
+        self.timer_weather = QTimer()
+        self.timer_weather.start(1800000)
+        self.timer_weather.timeout.connect(self.update_weather)
 
 
-        label_degree = QtWidgets.QLabel(f"{self.weather_degree}") #Текст для отображения
-        label_degree.setFont(PyQt5.QtGui.QFont('Inter', 36)) #Изменение шрифта отображения градусов
-        label_degree.setStyleSheet('color: white')
+
 
         #label_weather = QtWidgets.QLabel()
         #label_weather.setText('f')
@@ -85,7 +98,7 @@ class MainUi(QWidget):
         grid = QtWidgets.QGridLayout() # Создание самой сетки
 
         "Добавление всех labels в сетку"
-        grid.addWidget(label_degree, 0, 0)
+        grid.addWidget(self.label_degree, 0, 0)
         grid.addWidget(label_icon_weather, 0, 1)
         grid.addWidget(label_city, 0, 2)
         grid.addWidget(self.label_time, 1, 1)
