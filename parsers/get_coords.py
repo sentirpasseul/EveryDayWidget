@@ -5,6 +5,9 @@ class GetCoords:
     def __init__(self, city: str):
         self.city = city
 
+        self.get_coords()
+        self.get_weather()
+
 
     def get_req(self, url):
         req = requests.get(url)
@@ -36,23 +39,22 @@ class GetCoords:
         self.wind_direction = dict_weather['winddirection'] # Направление ветра
         self.weather_code = dict_weather['weathercode'] # Код погоды
 
+        return self.temperature, self.weather_code
+
 
 
     def save_data(self):
         self.pd_data = pd.DataFrame(
             {
-                'Температура': self.temperature,
-                'Скорость ветра': self.wind_speed,
-                'Направление ветра': self.wind_direction,
-                'Код погоды': self.weather_code
+                'Температура': [self.temperature],
+                'Скорость ветра': [self.wind_speed],
+                'Направление ветра': [self.wind_direction],
+                'Код погоды': [self.weather_code]
             }
         )
         print(self.pd_data)
 
-    def getAll(self):
-        self.get_coords()
-        self.get_weather()
-        self.save_data()
 
 
-GetCoords('Ulan-Ude').getAll()
+
+GetCoords('Ulan-Ude')
