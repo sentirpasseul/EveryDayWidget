@@ -17,10 +17,13 @@ class WeatherIcon:
         #effect = QGraphicsColorizeEffect()
 
 
-
-        self.clouds = QPixmap(r'..\src\icons\cloud_sun.png')
-        self.sunny = QPixmap(r'..\src\icons\sunny.png')
-        self.rain = QPixmap(r'..\src\icons\rainy.png')
+        self.sun = QPixmap(r'..\src\icons\weather\day\sun.png')
+        self.sun_clouds = QPixmap(r'..\src\icons\weather\day\cloud_sun.png')
+        self.clouds = QPixmap(r'..\src\icons\weather\day\clouds.png')
+        self.fog = QPixmap(r'..\src\icons\weather\day\fog.png')
+        self.rain = QPixmap(r'..\src\icons\weather\day\rain.png')
+        self.snow = QPixmap(r'..\src\icons\weather\day\snow.png')
+        self.thunder = QPixmap(r'..\src\icons\weather\day\thunder.png')
 
 
 
