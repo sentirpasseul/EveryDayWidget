@@ -36,11 +36,11 @@ class GetCoords:
         #print(dict_weather)
         self.temperature = round(dict_weather['temperature']) # Температура в градусах
         if self.temperature > 0:
-            self.temperature = f'+{self.temperature}°C'
+            self.temperature = f'+{self.temperature}°'
         elif self.temperature < 0:
-            self.temperature = f'-{self.temperature}°C'
+            self.temperature = f'-{self.temperature}°'
         else:
-            self.temperature = f'{self.temperature}°C'
+            self.temperature = f'{self.temperature}°'
 
         self.wind_speed = dict_weather['windspeed'] # Скорость ветра
         self.wind_direction = dict_weather['winddirection'] # Направление ветра

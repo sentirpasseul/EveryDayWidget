@@ -33,6 +33,6 @@ class WeatherIcon:
         #elif icon_w == 'Rain' or ('rain' in icon_w):
         #    return self.rain
         #elif icon_w == 'Sunny' or ('sunny' in icon_w):
-        return self.sunny
+        return self.clouds
 
 
