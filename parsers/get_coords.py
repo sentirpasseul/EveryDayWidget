@@ -35,11 +35,19 @@ class GetCoords:
         dict_weather = eval(req_weather)['current_weather'] # преобразование строки в словарь
         #print(dict_weather)
         self.temperature = round(dict_weather['temperature']) # Температура в градусах
+        if self.temperature > 0:
+            self.temperature = f'+{self.temperature}°C'
+        elif self.temperature < 0:
+            self.temperature = f'-{self.temperature}°C'
+        else:
+            self.temperature = f'{self.temperature}°C'
+
         self.wind_speed = dict_weather['windspeed'] # Скорость ветра
         self.wind_direction = dict_weather['winddirection'] # Направление ветра
         self.weather_code = dict_weather['weathercode'] # Код погоды
+        print(self.weather_code)
 
-        return self.temperature, self.weather_code
+        return self.temperature, int(self.weather_code)
 
 
 
