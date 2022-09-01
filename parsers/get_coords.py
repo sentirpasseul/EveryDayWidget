@@ -1,71 +1,58 @@
-import gzip
-
 import requests
-import json
-import re
-from bs4 import BeautifulSoup
-import numpy as np
-
+import pandas as pd
 
 class GetCoords:
-
     def __init__(self, city: str):
         self.city = city
-        self.appid = '353a92b5518119c1c1cdad7cc0ab9e41'
-        self.url_coords = f"https://api.openweathermap.org/data/2.5/weather?q={self.city}&appid={self.appid}"
-        self.kelvin = 273.15
 
-    def get_req(self, url: str):
+
+    def get_req(self, url):
         req = requests.get(url)
         srs = req.text
         return srs
 
     def get_coords(self):
-        srs_coords = self.get_req(self.url_coords)
-        dict_coords = eval(srs_coords) # конвертация в словарь
-        #print('Получаемые данные из местности:', dict_coords)
-        self.lon = round(dict_coords['coord']['lon'])
-        self.lat = round(dict_coords['coord']['lat'])
-        #print("Широта:", lat, "Долгота:", lon)
+        self.url_coords = f'https://geocoding-api.open-meteo.com/v1/search?name={self.city}'
+        coords = self.get_req(self.url_coords) # Это строчный тип данных
+        print(coords)
 
-        weather_icon = dict_coords['weather'][0]['main']
-        #print(weather_icon)
+        dict_coords = eval(coords) # Преобразование строки в словарь для фильтрации по индексам
+        #print(dict_coords)
 
-        weather_degree = round(dict_coords['main']['feels_like'] - self.kelvin)
-        #Если погода меньше 0, то добавляется перед числом знак "-", если больше - знак "+"
-        if weather_degree > 0:
-            weather_degree = f'+{weather_degree}°'
-        elif weather_degree < 0:
-            weather_degree = f'-{weather_degree}°'
-        else:
-            weather_degree = f'{weather_degree}°'
+        self.lat = round(dict_coords['results'][0]['latitude'], 3) # Поиск по индексам
+        #print(self.lat)
 
-        #print("Иконка погоды:",weather_icon)
-        #print('Погода сейчас: ', weather_degree)
-        #print(dict_coords['weather'])
-
-        #with open('coords/coords_city.json', 'w', encoding='utf-8') as file:
-         #   file.write(srs_coords)
-        return weather_degree, weather_icon
+        self.lon = dict_coords['results'][0]['longitude'] #
+        #print(self.lon)
 
     def get_weather(self):
-        #lon, lat = self.get_coords()
-        url_weather = f'https://api.openweathermap.org/data/2.5/weather?lat={self.lat}&lon={self.lon}&appid={self.appid}'
-        #with gzip.open('data_weather/daily_16.json.gz', 'rt', encoding='UTF-8') as zipfile:
-         #   data = json.load(zipfile)
-        srs_weather = self.get_req(url_weather)
-        self.dict_weather = eval(srs_weather)
-        #print("Погода: ",self.dict_weather)
+        self.url_weather = f'https://api.open-meteo.com/v1/forecast?latitude={float(self.lat)}&' \
+                           f'longitude={float(self.lon)}&current_weather=True' # api адреса погоды, где берем данные
+        req_weather = self.get_req(self.url_weather) # сам запрос данных
+        dict_weather = eval(req_weather)['current_weather'] # преобразование строки в словарь
+        #print(dict_weather)
+        self.temperature = round(dict_weather['temperature']) # Температура в градусах
+        self.wind_speed = dict_weather['windspeed'] # Скорость ветра
+        self.wind_direction = dict_weather['winddirection'] # Направление ветра
+        self.weather_code = dict_weather['weathercode'] # Код погоды
 
 
 
+    def save_data(self):
+        self.pd_data = pd.DataFrame(
+            {
+                'Температура': self.temperature,
+                'Скорость ветра': self.wind_speed,
+                'Направление ветра': self.wind_direction,
+                'Код погоды': self.weather_code
+            }
+        )
+        print(self.pd_data)
+
+    def getAll(self):
+        self.get_coords()
+        self.get_weather()
+        self.save_data()
 
 
-
-
-
-
-
-
-coords = GetCoords(city='Ulan-Ude')
-coords.get_coords()
+GetCoords('Ulan-Ude').getAll()
