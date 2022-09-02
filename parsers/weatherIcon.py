@@ -16,7 +16,7 @@ class WeatherIcon:
         #item = QGraphicsItem()
         #effect = QGraphicsColorizeEffect()
 
-
+        # Импорт иконок погоды
         self.sun = QPixmap(r'..\src\icons\weather\day\sun.png')
         self.sun_clouds = QPixmap(r'..\src\icons\weather\day\cloud_sun.png')
         self.clouds = QPixmap(r'..\src\icons\weather\day\clouds.png')
@@ -29,8 +29,10 @@ class WeatherIcon:
 
 
     def get_weather(self):
-        icon_w = self.weather_code
+        icon_w = self.weather_code # Получение кода погоды
         #print('ICON_W', icon_w)
+
+        #Списки с кодами погоды
         sun = [0, 1]
         fog = [item for item in range(45, 49)]
         drizzle = [item for item in range(51, 58)]
@@ -40,6 +42,7 @@ class WeatherIcon:
         snow_showers = [85, 86]
         thunder = ['95 *', 96, '99 *']
 
+        #Условия, при которых код = иконка погоды. Если код = 1, то погода солнечная и отображается иконка солнца
         if icon_w in sun:
             return self.sun
         elif icon_w == 2:
