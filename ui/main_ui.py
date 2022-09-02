@@ -17,6 +17,7 @@ class MainUi(QWidget):
 
         self.setWindowFlag(Qt.FramelessWindowHint) #Режим без рамок окна
         self.setAttribute(Qt.WA_TranslucentBackground) #Режим прозрачного фона
+        self.setWindowIcon(QIcon(r'..\src\icons\window\icon_desktop.png'))
 
         self.city = 'Ulan-Ude'
         self.getCoords = GetCoords(f"{self.city}")
@@ -74,6 +75,8 @@ class MainUi(QWidget):
         label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
         label_city.setFont(PyQt5.QtGui.QFont('Inter', 36)) #Изменение шрифта отображения города
         label_city.setStyleSheet('color: white; opacity: 0.72; padding-up: 50px')
+
+
 
         grid = QtWidgets.QGridLayout() # Создание самой сетки
 
