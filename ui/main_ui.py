@@ -30,13 +30,9 @@ class MainUi(QWidget):
         self.label_degree = QLabel()
         self.label_icon_weather = QtWidgets.QLabel()              #Инициализация корпуса погоды
 
-
-
-
         #print('@@@', self.time)
 
         self.full_day = self.getDate.full_day
-
         self.initUI()
 
     def update_time(self):
@@ -58,8 +54,8 @@ class MainUi(QWidget):
         self.label_degree.setStyleSheet('color: white')
 
 
-        pixmap_icon_weather = QPixmap(self.path_icon_weather)  # Иконка погоды с указанием пути к ней
-        pixmap_icon_weather.scaled(90, 90)  # Масштабирование иконки погоды
+        pixmap_icon_weather = QPixmap(self.path_icon_weather).scaled(90, 90)  # Иконка погоды с указанием пути к ней
+        #pixmap_icon_weather.scaled(90, 90)  # Масштабирование иконки погоды
         self.label_icon_weather.setPixmap(pixmap_icon_weather)  # Добавление иконки в корпус Label
         self.label_icon_weather.setStyleSheet('color: white; opacity: 0.72; margin-left: 10px')
 
@@ -74,9 +70,6 @@ class MainUi(QWidget):
         self.timer_weather = QTimer()
         self.timer_weather.start(3000) #Каждые 3000 cекунд обновляется погода
         self.timer_weather.timeout.connect(self.update_weather) #Автообновление погоды
-
-
-
 
         label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
         label_city.setFont(PyQt5.QtGui.QFont('Inter', 36)) #Изменение шрифта отображения города
