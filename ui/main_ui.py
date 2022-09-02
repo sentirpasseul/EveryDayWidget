@@ -9,7 +9,6 @@ from parsers.get_date import TodayDateTime
 from parsers.weatherIcon import WeatherIcon
 import sys
 import datetime
-#from parsers.get_coords import
 
 class MainUi(QWidget):
     updated = pyqtSignal(str, arguments=['time'])
@@ -25,10 +24,7 @@ class MainUi(QWidget):
         weatherIcon = WeatherIcon(self.weather_code)
         self.path_icon_weather = weatherIcon.get_weather()
 
-        #print(weather_icon, weather_degree)
-
         self.getDate = TodayDateTime()
-        #self.time = self.updateTime()
         self.label_time = QLabel()
         self.label_date = QLabel()
         self.label_degree = QLabel()
@@ -65,20 +61,14 @@ class MainUi(QWidget):
 
         #self.updateTime()
         self.timer_time = QTimer()
-        self.timer_time.start(250)
-        self.timer_time.timeout.connect(self.update_time)
+        self.timer_time.start(250) #Каждые 250 миллисекунд обновляется дата и время
+        self.timer_time.timeout.connect(self.update_time) #Автообновление времени и даты
 
         self.timer_weather = QTimer()
-        self.timer_weather.start(600000)
-        self.timer_weather.timeout.connect(self.update_weather)
+        self.timer_weather.start(600000) #Каждые 30 минут обновляется погода
+        self.timer_weather.timeout.connect(self.update_weather) #Автообновление погоды
 
 
-
-
-
-
-        #label_weather = QtWidgets.QLabel()
-        #label_weather.setText('f')
         label_icon_weather = QtWidgets.QLabel()              #Инициализация корпуса погоды
         pixmap_icon_weather = QPixmap(self.path_icon_weather) #Иконка погоды с указанием пути к ней
         pixmap_icon_weather.scaled(90, 90) #Масштабирование иконки погоды
@@ -103,15 +93,6 @@ class MainUi(QWidget):
         self.move(self.width(), self.height()//6)
         self.setWindowTitle('EveryDayWidget')
         self.show()
-
-
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
