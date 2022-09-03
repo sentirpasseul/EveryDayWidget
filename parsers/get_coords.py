@@ -1,6 +1,7 @@
 import requests
 import datetime
 import pandas as pd
+from parsers.get_date import TodayDateTime
 
 class GetCoords:
     def __init__(self, city: str):
@@ -8,7 +9,7 @@ class GetCoords:
 
         self.get_coords()
         self.get_weather()
-        #print(self.today_date)
+
 
     def get_req(self, url):
         req = requests.get(url)
@@ -50,8 +51,12 @@ class GetCoords:
         self.weather_code = dict_weather['weathercode'] # Код погоды
         #print(self.weather_code)
 
-        print(self.temperature) #Вывод в логи показателя температуры
-        print(today_date) #Вывод в логи даты и времени
+        self.getDate = TodayDateTime()
+        today = datetime.datetime.now()
+        self.time = (today.strftime("%H:%M"))
+        print("Температура:", f'{self.temperature} ', "Дата:", f'{self.getDate.today.date()} ',
+              'Время:', f'{self.time} ', sep='') #Вывод в логи показателя температуры
+        #print(today_date) #Вывод в логи даты и времени
 
         return self.temperature, int(self.weather_code)
 

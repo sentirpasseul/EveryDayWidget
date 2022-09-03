@@ -83,8 +83,9 @@ class MainUi(QWidget):
         self.timer_time.start(250) #Каждые 250 миллисекунд обновляется дата и время
         self.timer_time.timeout.connect(self.update_time) #Автообновление времени и даты
 
+        mins = 5
         self.timer_weather = QTimer()
-        self.timer_weather.start(900000) #Каждые 3000 cекунд обновляется погода
+        self.timer_weather.start(mins * 60 * 1000) #Каждые 5 минут обновляется погода
         self.timer_weather.timeout.connect(self.update_weather) #Автообновление погоды
 
         label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
