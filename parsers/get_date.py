@@ -14,6 +14,7 @@ class TodayDateTime:
         self.month = self.months[self.today.month-1]
         self.weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
         self.weekday = self.weekdays[calendar.weekday(self.year, self.today.month, self.day)]
+        self.time = self.today.time()
         #print(self.today)
         #print('День: ',self.day)
         #print("Месяц: ",self.month)
