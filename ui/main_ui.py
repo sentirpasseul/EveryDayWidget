@@ -24,10 +24,15 @@ class MainUi(QWidget):
 
 
         self.getDate = TodayDateTime()
-        self.label_time = QLabel()
-        self.label_date = QLabel()
-        self.label_degree = QLabel()
-        self.label_icon_weather = QtWidgets.QLabel()              #Инициализация корпуса погоды
+        self.label_time = QLabel()                      #Инициализация пустой записи времени
+        self.label_date = QLabel()                      #Инициализация пустой записи даты
+        self.label_degree = QLabel()                    #Инициализация пустой записи показателя погоыды
+        self.label_icon_weather = QtWidgets.QLabel()    #Инициализация пустой записи иконки погоды
+
+        self.label_weekday = QLabel()                   #Инициализация пустой записи дня недели
+        self.weekday = self.getDate.weekday
+        print(self.weekday)
+
 
         self.weather_degree, self.weather_code = self.getCoords.get_weather()
         weatherIcon = WeatherIcon(self.weather_code)
@@ -35,12 +40,12 @@ class MainUi(QWidget):
 
         self.label_degree.setText(self.weather_degree)  # Текст для отображения
         self.label_degree.setFont(PyQt5.QtGui.QFont('Inter', 36))  # Изменение шрифта отображения градусов
-        self.label_degree.setStyleSheet('color: white')
+        self.label_degree.setStyleSheet('color: rgb(255,255,255)')
 
         pixmap_icon_weather = QPixmap(self.path_icon_weather).scaled(90, 90)  # Иконка погоды с указанием пути к ней
         # pixmap_icon_weather.scaled(90, 90)  # Масштабирование иконки погоды
         self.label_icon_weather.setPixmap(pixmap_icon_weather)  # Добавление иконки в корпус Label
-        self.label_icon_weather.setStyleSheet('color: white; opacity: 0.72; margin-left: 10px')
+        self.label_icon_weather.setStyleSheet('color: rgb(255,255,255); margin-left: 10px')
 
         #print('@@@', self.time)
 
@@ -53,12 +58,16 @@ class MainUi(QWidget):
 
         self.label_time.setText(self.time)
         #self.label_time = QLabel(f'{self.time}')  # Текст для отображения времени
-        self.label_time.setFont(PyQt5.QtGui.QFont('Inter', 24))  # Изменение шрифта отображения времени
-        self.label_time.setStyleSheet('color: white; ')
+        self.label_time.setFont(PyQt5.QtGui.QFont('Inter', 20))  # Изменение шрифта отображения времени
+        self.label_time.setStyleSheet('color: rgb(255,255,255)')
 
         self.label_date.setText(self.full_day)  # Текст для отображения даты
         self.label_date.setFont(PyQt5.QtGui.QFont('Inter', 16))  # Изменение шрифта отображения даты
-        self.label_date.setStyleSheet('color: white; padding-left: 10px; padding-down: 50px')
+        self.label_date.setStyleSheet('color: rgb(255,255,255, 0.8); padding-left: 5px; padding-down: 50px')
+
+        self.label_weekday.setText(self.weekday)
+        self.label_weekday.setFont(PyQt5.QtGui.QFont('Inter', 36))
+        self.label_weekday.setStyleSheet('color: rgb(255,255,255, 0.9); padding-left: 5px; padding-up: 20px; opacity: 0.4')
 
     def update_weather(self):
         self.weather_degree, self.weather_code = self.getCoords.get_weather()
@@ -67,13 +76,13 @@ class MainUi(QWidget):
 
         self.label_degree.setText(self.weather_degree)  # Текст для отображения
         self.label_degree.setFont(PyQt5.QtGui.QFont('Inter', 36))  # Изменение шрифта отображения градусов
-        self.label_degree.setStyleSheet('color: white')
+        self.label_degree.setStyleSheet('color: rgb(255,255,255); padding-left: 15px')
 
 
         pixmap_icon_weather = QPixmap(self.path_icon_weather).scaled(90, 90)  # Иконка погоды с указанием пути к ней
         #pixmap_icon_weather.scaled(90, 90)  # Масштабирование иконки погоды
         self.label_icon_weather.setPixmap(pixmap_icon_weather)  # Добавление иконки в корпус Label
-        self.label_icon_weather.setStyleSheet('color: white; opacity: 0.72; margin-left: 10px')
+        self.label_icon_weather.setStyleSheet('color: rgb(255,255,255); margin-left: 10px')
 
 
     def initUI(self):
@@ -88,9 +97,9 @@ class MainUi(QWidget):
         self.timer_weather.start(mins * 60 * 1000) #Каждые 5 минут обновляется погода
         self.timer_weather.timeout.connect(self.update_weather) #Автообновление погоды
 
-        label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
-        label_city.setFont(PyQt5.QtGui.QFont('Inter', 36)) #Изменение шрифта отображения города
-        label_city.setStyleSheet('color: white; opacity: 0.72; padding-up: 50px')
+        #label_city = QtWidgets.QLabel(f'{self.city}') #Текст для отображения города
+        #label_city.setFont(PyQt5.QtGui.QFont('Inter', 36)) #Изменение шрифта отображения города
+        #label_city.setStyleSheet('color: white; opacity: 0.72; padding-up: 50px')
 
 
 
@@ -99,7 +108,7 @@ class MainUi(QWidget):
         "Добавление всех labels в сетку"
         grid.addWidget(self.label_degree, 0, 0)
         grid.addWidget(self.label_icon_weather, 0, 1)
-        grid.addWidget(label_city, 0, 2)
+        grid.addWidget(self.label_weekday, 0, 2)
         grid.addWidget(self.label_time, 1, 1)
         grid.addWidget(self.label_date, 1, 2)
 
