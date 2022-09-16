@@ -12,7 +12,7 @@
 </div>
 
 <div id="imgs_desc">
-  <img src="https://user-images.githubusercontent.com/71366294/190576830-69569aa7-a63e-4ea5-b7ac-79f610c04dc1.png)"/>
+  ![EDW1](https://user-images.githubusercontent.com/71366294/190577069-3e6d9ffa-412f-4371-ab4e-ab1f75315750.PNG)
 
 </div>
 
