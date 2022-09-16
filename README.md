@@ -19,7 +19,7 @@
 
 <div id="requirements">
   <p>Системные требования:</p>
-  <p>- Windows 10</p>
+  <p>- Windows 10 <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Vk Badge"/></p>
   <p>- Python 3 и выше</p>
   <p>- Рабочий стол без отображения иконок</p>
 
