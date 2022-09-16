@@ -5,7 +5,10 @@
 ---
 
 <div id="description">
-  <p>Программное приложение создавалось для изучения основ библиотеки PyQt5 и open-source проекта <a href="https://open-meteo.com/en/docs"><img src="https://img.shields.io/badge/OpenMeteo-orange"/></a></p>
+  <p>Программное приложение создавалось для изучения основ библиотеки PyQt5 и open-source проекта <a href="https://open-meteo.com/en/docs"><img src="https://img.shields.io/badge/API-OpenMeteo-orange"/></a></p>
+  <p>Оно представляет собой небольшой десктопный виджет для рабочего стола. EveryDayWidget представляет информацию об актуальных:</p>
+  <p>- Дате/Времени (в т. ч. дня недели)</p>
+  <p>- Погоде </p>
 </div>
 
 ---
