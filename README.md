@@ -8,8 +8,14 @@
   <p>Программное приложение создавалось для изучения основ библиотеки PyQt5 и open-source проекта <a href="https://open-meteo.com/en/docs"><img src="https://img.shields.io/badge/API-OpenMeteo-orange"/></a></p>
   <p>EveryDayWidget представляет собой небольшой десктопный виджет для рабочего стола, представляющий актуальную информацию о:</p>
   <p> - :watch: Дате и времени (в т. ч. дня недели)</p>
-  <p> - :sun_behind_rain_cloud: погоде </p>
+  <p> - :sun_behind_rain_cloud: Погоде </p>
 </div>
+
+<div id="imgs_desc">
+  ![image](https://user-images.githubusercontent.com/71366294/190576517-32876e6f-df9c-4ae0-a3e0-d6562b52517c.png)
+
+</div>
+
 
 ---
 
