@@ -11,10 +11,8 @@
   <p> - :sun_behind_rain_cloud: Погоде </p>
 </div>
 
-<div id="imgs_desc">
-  ![EDW1](https://user-images.githubusercontent.com/71366294/190577069-3e6d9ffa-412f-4371-ab4e-ab1f75315750.PNG)
+![image](https://user-images.githubusercontent.com/71366294/190577172-ca992fde-221e-445d-bf5a-ce88d5f48486.png)
 
-</div>
 
 
 ---
