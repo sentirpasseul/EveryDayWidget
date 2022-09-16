@@ -2,9 +2,9 @@
   <h1>EveryDayWidget</h1>
   <h3>Виджет для вашего рабочего стола</h3>
 </div>
-![image](https://user-images.githubusercontent.com/71366294/190577172-ca992fde-221e-445d-bf5a-ce88d5f48486.png)
 
 ---
+![image](https://user-images.githubusercontent.com/71366294/190577172-ca992fde-221e-445d-bf5a-ce88d5f48486.png)
 
 <div id="description">
   <p>Программное приложение создавалось для изучения основ библиотеки PyQt5 и open-source проекта <a href="https://open-meteo.com/en/docs"><img src="https://img.shields.io/badge/API-OpenMeteo-orange"/></a></p>
