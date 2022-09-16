@@ -11,11 +11,12 @@
   <p> - :sun_behind_rain_cloud: Погоде </p>
 </div>
 
+---
 ![image](https://user-images.githubusercontent.com/71366294/190577172-ca992fde-221e-445d-bf5a-ce88d5f48486.png)
 
 
 
----
+
 
 <div id="requirements">
   <p>Системные требования:</p>
