@@ -1,7 +1,7 @@
 <div id="header">
   <h1>EveryDayWidget</h1>
   <h3>Виджет для вашего рабочего стола</h3>
-
+</div>
 ---
 
 <div id="description">
