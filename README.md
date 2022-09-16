@@ -1,5 +1,6 @@
-![EveryDayWidget](https://user-images.githubusercontent.com/71366294/188083685-98b676ac-fceb-4a21-8a81-e79c0ec4b3a4.png)
-
+<div id="header">
+  <h1>EveryDayWidget</h1>
+  <h3>Виджет для вашего рабочего стола</h3>
 
 ---
 
@@ -25,3 +26,4 @@
 ---
 :hourglass: Находится в разработке
 
+<!--![EveryDayWidget](https://user-images.githubusercontent.com/71366294/188083685-98b676ac-fceb-4a21-8a81-e79c0ec4b3a4.png) --!>
