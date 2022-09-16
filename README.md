@@ -2,6 +2,8 @@
   <h1>EveryDayWidget</h1>
   <h3>Виджет для вашего рабочего стола</h3>
 </div>
+![image](https://user-images.githubusercontent.com/71366294/190577172-ca992fde-221e-445d-bf5a-ce88d5f48486.png)
+
 ---
 
 <div id="description">
@@ -12,7 +14,6 @@
 </div>
 
 ---
-![image](https://user-images.githubusercontent.com/71366294/190577172-ca992fde-221e-445d-bf5a-ce88d5f48486.png)
 
 
 
@@ -26,6 +27,7 @@
   <p>   Рабочий стол без отображения иконок</p>
   </div>
 </div>
+
 ---
 
 <div id="installation">
