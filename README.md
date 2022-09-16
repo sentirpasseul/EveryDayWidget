@@ -20,7 +20,7 @@
 
 
 <div id="requirements">
-  <p>>h3>Системные требования:</h3></p>
+  <p><h3>Системные требования:</h3></p>
   <div style="padding-left: 20px"
   <p>   <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows10 Badge"/></p>
   <p>   <img src="https://img.shields.io/badge/-Python%203%20и%20выше-blue" alt="Python3 Badge"/></p>
