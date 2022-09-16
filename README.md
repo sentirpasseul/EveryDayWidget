@@ -1,16 +1,16 @@
 <div id="header">
   <h1>EveryDayWidget</h1>
-  <h3>Виджет для вашего рабочего стола</h3>
+  <h2>Виджет для вашего рабочего стола</h2>
 </div>
 
 ---
 ![image](https://user-images.githubusercontent.com/71366294/190577172-ca992fde-221e-445d-bf5a-ce88d5f48486.png)
 
 <div id="description">
-  <p><h4>Программное приложение создавалось для изучения основ библиотеки PyQt5 и open-source проекта</h4> <a href="https://open-meteo.com/en/docs"><img src="https://img.shields.io/badge/API-OpenMeteo-orange"/></a></p>
-  <p><h4>EveryDayWidget представляет собой небольшой десктопный виджет для рабочего стола, представляющий актуальную информацию о: </h4></p>
-  <p><h5> - :watch: Дате и времени (в т. ч. дня недели и месяца)</h5></p>
-  <p><h5> - :sun_behind_rain_cloud: Погоде </h5></p>
+  <p><h3>Программное приложение создавалось для изучения основ библиотеки PyQt5 и open-source проекта</h3> <a href="https://open-meteo.com/en/docs"><img src="https://img.shields.io/badge/API-OpenMeteo-orange"/></a></p>
+  <p><h3>EveryDayWidget представляет собой небольшой десктопный виджет для рабочего стола, представляющий актуальную информацию о: </h3></p>
+  <p><h4> - :watch: Дате и времени (в т. ч. дня недели и месяца)</h4></p>
+  <p><h4> - :sun_behind_rain_cloud: Погоде </h4></p>
 </div>
 
 ---
