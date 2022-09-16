@@ -3,7 +3,7 @@
 ---
 
 <div id="description">
-  <p>Программное приложение создавалось для изучения основ библиотеки PyQt5 и использования API проекта <a href="https://open-meteo.com/en/docs"><img src="https://img.shields.io/badge/-OpenMeteo-orange"/></a></p>
+  <p>Программное приложение создавалось для изучения основ библиотеки PyQt5 и <a href="https://open-meteo.com/en/docs"><img src="https://img.shields.io/badge/API-OpenMeteo-orange"/></a></p>
 </div>
 
 
